@@ -1,7 +1,12 @@
 body{
+	font-family: 'Abel';
 	overflow: hidden; 
 	margin: 0;
 	padding: 0;
+	background: rgb(40, 40, 40);
+	text-align: center;
+	color: white;
+	
 }
 
 

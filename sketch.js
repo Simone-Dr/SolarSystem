@@ -1,15 +1,29 @@
 let planet = []; 
 let sun; 
-const planetSizeFactor = 1000;
+var planetSizeFactor = 1000;
 const EarthRToAU = 0.000042588;		// 1 AU =	 149 597 870, 7 km
 									// 1 EarthRadius = 6 371 km
 									// Radius in EarthRadius to AU : 1 EarthRadius = 0.000042588 AU  
 
 function setup() {
+	 
 	createCanvas(windowWidth, windowHeight);
+	PlanetInit(planetSizeFactor); 
 
+}
+
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  PlanetInit(planetSizeFactor); 
+}
+
+
+function PlanetInit(PlanetSizeF) {
 	let AuToScreen = windowWidth / 2 / 40 ;  //40 AU = windowwith/2
-						
+	
+	planetSizeFactor = PlanetSizeF; 
+
 	sun 	  = new Body(109  * EarthRToAU * AuToScreen, createVector(0), 	createVector(0,0), '#f9be27'); 
 	let radSun = 109 * EarthRToAU * AuToScreen * planetSizeFactor; 	 
 				//	radius relative to earth is translated to AU ; Distance to sun in AU (sun surface)								Mass (1024kg)	
@@ -24,6 +38,7 @@ function setup() {
 
 }
 
+
 function draw() {
 	background(40, 40, 40);
 	translate(width/2, height/2);
@@ -34,7 +49,7 @@ function draw() {
 
 
 	for (let i = 0; i < planet.length; i++) {
-		//planet[i].update();
+		
 		planet[i].show();
 	}
 }
@@ -49,20 +64,20 @@ function Body(_radius, _pos, _vel, _tex, _mass) {
 	this.mass = _mass;
 
 	this.show = function(){
+		
 		noStroke(); 		
 		fill(this.tex); 
 		ellipse(this.pos.x , this.pos.y, this.radius * 2); 
+
+
+		if (this.radius < 1) {
+			strokeWeight(0.5); 
+			stroke('gray');
+			noFill();
+	   		ellipse(this.pos.x , this.pos.y, 2); 
+	   	}
 	}
 
-	/* this.update = function(){
-		this.pos.x += this.vel.x;
-		this.pos.y += this.vel.y;
-	}
-
-
-	this.attract = function(){
-
-	}*/
 	
 }
 
