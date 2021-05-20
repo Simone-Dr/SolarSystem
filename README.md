@@ -32,11 +32,11 @@ The Positions are calculated with the Keplerian Elements and are therefore only 
 
 
 ## How calculating the position works: 
-* our Gregorian Date is transferred to the Julien Date which gives the date in days since 4713 BC. This is then changed to give the time measured in Julian centuries (36525 days) since Jan 2000. 
+our Gregorian Date is transferred to the Julien Date which gives the date in days since 4713 BC. This is then changed to give the time measured in Julian centuries (36525 days) since Jan 2000. 
 
-* Every planet is initialized with their Keplerian elements as well as the rates at which they change every Julian century. Those Elements only display the orbits in a specific window of time, which is why this simulation is most accurate for the time interval 1800 AD - 2050 AD.
+Every planet is initialized with their Keplerian elements as well as the rates at which they change every Julian century. Those Elements only display the orbits in a specific window of time, which is why this simulation is most accurate for the time interval 1800 AD - 2050 AD.
 
-* In draw(), a p5 function that is set to loop 30 times per second, the date increases by one day each loop. The planet[i].update() function is called as well and processes the date and the elements to generate the position of the planet.
+In draw(), a p5 function that is set to loop 30 times per second, the date increases by one day each loop. The planet[i].update() function is called as well and processes the date and the elements to generate the position of the planet.
 
 ```javascript
 aNow =  a + ra * time.transDate;			// Semi-major axis 
@@ -51,7 +51,7 @@ if (LGen < 0) { LGen = 360 + LGen;}
 if (meanAnom < 0) {meanAnom = 360 + meanAnom;}
 ```
 
-* Then, we calculate the eccentric anomaly using Newton's Method and the Mean anomaly. 
+Then, we calculate the eccentric anomaly using Newton's Method and the Mean anomaly. 
 
 ```javascript
 function EccAnom(ec, m) {  //https://en.wikipedia.org/wiki/Kepler%27s_equation#Numerical_approximation_of_inverse_problem
@@ -77,7 +77,7 @@ function EccAnom(ec, m) {  //https://en.wikipedia.org/wiki/Kepler%27s_equation#N
 }
 ```
 
-* With the eccentric anomaly, we calculate the true anomaly. 
+With the eccentric anomaly, we calculate the true anomaly. 
 
 ```javascript
 //argument of true anomaly
@@ -98,7 +98,7 @@ else{
 let radius = aNow * ((1 - eNow * eNow) / ( 1 + eNow * Math.cos(toRadians(trueAnom)))); 	//https://en.wikipedia.org/wiki/True_anomaly#Radius_from_true_anomaly
 ```
 
-* we can get the Heliocentric coordinates of the planet using the radius vector, the true anomaly, the longitude of perihelion, the longitude of ascending node and the inclination. 
+we can get the Heliocentric coordinates of the planet using the radius vector, the true anomaly, the longitude of perihelion, the longitude of ascending node and the inclination. 
 ```javascript
 //taken from http://www.stargazing.net/kepler/ellipse.html#twig04 explained at https://farside.ph.utexas.edu/teaching/celestial/Celestial/node34.html
 xGen = radius * (Math.cos(toRadians(oNow)) * Math.cos(toRadians(trueAnom + wNow - oNow)) - Math.sin(toRadians(oNow)) * Math.sin(toRadians(trueAnom + wNow - oNow)) * Math.cos(toRadians(iNow)));
