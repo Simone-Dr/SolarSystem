@@ -2,11 +2,54 @@ body{
 	font-family: 'Abel';
 	overflow: hidden; 
 	margin: 0;
-	padding: 0;
+	padding: 10px;
+	padding-top: 4px;
 	background: rgb(40, 40, 40);
-	text-align: center;
 	color: white;
-	
+	font-size: 19px;
 }
 
 
+
+.label{
+	padding: 5px 15px;
+	margin: 7px 5px;
+
+}
+
+.button {
+	font-family : inherit;
+	border: none;
+	padding: 5px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 7px 5px;
+	cursor: pointer;
+	border: 1px solid #FFFFFF;
+	background: rgba(40,40,40,0) ;
+	color: #F4F4F4;
+}
+.button:hover {
+	color: #c65836;	
+}
+
+#PlanetSizeFactor{
+	width: 40px;	
+}
+
+input {
+	font-family : inherit;
+	border: none;
+	padding: 5px 15px;
+	margin: 7px 5px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 17px;
+	cursor: pointer;
+	border-bottom: 2px solid #FFFFFF;
+	background: rgba(40,40,40,0) ;
+	color: #F4F4F4;
+	
+}

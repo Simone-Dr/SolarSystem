@@ -10,8 +10,22 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
 </head>
 <body>
+	<label id = "date"> </label> 
+	<button class="button" onclick = "playPause()">⏯</button>
+	<input type="date" id="changeDate" value="2000-01-01">
+	<button class="button" onclick = "changeDate(document.getElementById('changeDate').value)">Set Date</button>
+	<br>
 	<label>Planet Size Factor: </label>
-	<input type="text" id="PlanetSizeFactor" value="1000">
-	<button class="button" onclick="PlanetInit(parseFloat(document.getElementById('PlanetSizeFactor').value))">Submit</button> 
+	<input type="text" id="PlanetSizeFactor" value="1">
+	<button class="button" onclick="PlanetSizeChange(parseFloat(document.getElementById('PlanetSizeFactor').value))">Submit</button> 
+	<br>
+	<button class="button" onclick = "zoomChange(0.05)">Outer Solar System</button>
+	<br>
+	<button class="button" onclick = "zoomChange(1)">Inner Solar System</button>
+	<br>
+	<button class="button" id="Names" onclick = "HideNames()">Hide Names</button>
+	<br>
+	<button class="button" id="Sun" onclick = "HideSun()">Hide Sun</button>	
+
 </body>
 </html>
