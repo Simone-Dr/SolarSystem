@@ -1,6 +1,6 @@
 # SolarSystem
 
-This is a two-dimensional simulation of our solar system to scale, written in Javascript while using the p5 library for the plotting.  simone-dr.github.io/solarsystem/ 
+[This](simone-dr.github.io/solarsystem/) is a two-dimensional simulation of our solar system to scale, written in Javascript while using the p5 library for the plotting.  
 
 ## Contents
 * real-time planetary movement at the current date or a manually set date
