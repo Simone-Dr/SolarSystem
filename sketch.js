@@ -151,7 +151,7 @@ function draw() {
 }
 
 
-function Body(_name, _radius, _tex, img, moons, type, mass, lengthOfYear, LengthOfDay, gravity, a, e, i, L, w, o, ra, re, ri, rL, rw, ro) {	
+function Body(_name, _radius, _tex, img, moons, type, mass, lengthOfYear, lengthOfDay, gravity, a, e, i, L, w, o, ra, re, ri, rL, rw, ro) {	
  	this.name = _name;
  	this.gravity = gravity; 
  	this.radius = _radius * planetSizeFactor * AuToScreen; 
@@ -320,7 +320,7 @@ function Body(_name, _radius, _tex, img, moons, type, mass, lengthOfYear, Length
 		textSize(25/zoom*width/1920);
 		text( "≈ " + Math.round(this.velocity*100)/100 + " km/s", -width/25/zoom,  height/2.65/zoom);
 		textSize(15/zoom*width/1920);
-		text("velocity", -width/25/zoom, height/2.5/zoom);
+		text("Velocity", -width/25/zoom, height/2.5/zoom);
 
 		//Length of Year
 		textSize(25/zoom*width/1920);
@@ -338,9 +338,9 @@ function Body(_name, _radius, _tex, img, moons, type, mass, lengthOfYear, Length
  		//Planet Radius From Sun in KM
 		let rotation = "Direct"; //direct rotation
 
-		let temp = LengthOfDay;
+		let temp = lengthOfDay;
 
-		if (LengthOfDay < 0) {
+		if (lengthOfDay < 0) {
 			rotation = "Retrograde";
 			temp *= -1;
 		} 
